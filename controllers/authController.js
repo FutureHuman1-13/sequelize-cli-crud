@@ -32,7 +32,7 @@ exports.loginUser = async (req, res) => {
         const matchPassword = await bcrypt.compare(password, findUser.password);
         if (!matchPassword) return res.status(401).json({ message: "Invalid Credentials!" });
 
-        console.log("JWT_SECRET:", process.env.ACCESS_TOKEN_SECRET);
+        // console.log("JWT_SECRET:", process.env.ACCESS_TOKEN_SECRET);
 
         const token = jwt.sign(
             { _id: findUser.id },
